@@ -128,9 +128,11 @@ variable "cdirs_acesso_remoto" {
 
 **um poucos sobre os comandos que serão executados**
 
-[terraform init](https://www.terraform.io/docs/cli/commands/init.html)
-[terraform plan](https://www.terraform.io/docs/cli/commands/plan.html)
-[terraform apply](https://www.terraform.io/docs/cli/commands/apply.html)
+_[terraform init](https://www.terraform.io/docs/cli/commands/init.html)_
+
+_[terraform plan](https://www.terraform.io/docs/cli/commands/plan.html)_
+
+_[terraform apply](https://www.terraform.io/docs/cli/commands/apply.html)_
 
 
 
