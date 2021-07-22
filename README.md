@@ -16,7 +16,7 @@ você precisa configura-las na sua máquina.
 
 
 
-##Mãos a obra.
+### Mãos a obra.
 
 Recomendo você criar uma pasta para podermos trabalhar, após isso dentro dessa pasta crie os seguintes arquivos.
 
@@ -31,7 +31,7 @@ terraform.tfvars
 
 
 
-##No arquivo main.tf, iremos incluir o nosso provider aws.
+#### No arquivo main.tf, iremos incluir o nosso provider aws.
 
 ```
 provider "aws" {
@@ -39,8 +39,9 @@ provider "aws" {
 }
 ```
 
-##No arquivo ec2.tf, vamos declarar a nossa instancia, aqui estamos citando o script.sh que irá instalar o nginx.
-##Aqui também citamos o security group e que vai se comportar como um firewall para a nossa instancia
+
+#### No arquivo ec2.tf, vamos declarar a nossa instancia, aqui estamos citando o script.sh que irá instalar o nginx.
+#### Aqui também citamos o security group e que vai se comportar como um firewall para a nossa instancia
 
 
 ```
@@ -56,8 +57,8 @@ resource "aws_instance" "web1" {
 }
 ```
 
-##O output.tf utilizamos para que no final da execução do nosso código nos seja apresentado alguma informação desejada.
-##No caso aqui será a url para acessarmos a instancia via browser.
+#### O output.tf utilizamos para que no final da execução do nosso código nos seja apresentado alguma informação desejada.
+#### No caso aqui será a url para acessarmos a instancia via browser.
 
 ```
 output "dns" {
@@ -65,9 +66,9 @@ output "dns" {
 }
 ```
 
-##Através do security-group.tf declaramos as portas que estaram abertas de entrada e saida.
-T##ambém podemos limitar esses acessos via ip.
-##Estamos utilizando variável para facilitarmos o nosso dia, caso precise alterar o ip de acesso, alteramos em apenas um lugar.
+#### Através do security-group.tf declaramos as portas que estaram abertas de entrada e saida.
+#### Também podemos limitar esses acessos via ip.
+#### Estamos utilizando variável para facilitarmos o nosso dia, caso precise alterar o ip de acesso, alteramos em apenas um lugar.
 
 ```
 resource "aws_security_group" "web1" {
@@ -107,7 +108,7 @@ resource "aws_security_group" "web1" {
 }
 ```
 
-##As variáveis citadas acima, serão declaras no arquivo vars.tf.
+#### As variáveis citadas acima, serão declaras no arquivo vars.tf.
 
 ```
 variable "amis" {
@@ -124,3 +125,13 @@ variable "cdirs_acesso_remoto" {
   default = ["seu-ip/32"]
 }
 ```
+
+**um poucos sobre os comandos que serão executados**
+
+[terraform init](https://www.terraform.io/docs/cli/commands/init.html)
+[terraform plan](https://www.terraform.io/docs/cli/commands/plan.html)
+[terraform apply](https://www.terraform.io/docs/cli/commands/apply.html)
+
+
+
+
