@@ -1,4 +1,5 @@
-# Terraform para iniciantes.
+# Terraform para iniciantes. ![Where is the doctor](/images/terraformicon.png)
+
 
 
 Terraform é uma ferramenta para construir, alterar e configurar infraestrutura.
