@@ -137,6 +137,7 @@ _[terraform plan](https://www.terraform.io/docs/cli/commands/plan.html)_
 
 _[terraform apply](https://www.terraform.io/docs/cli/commands/apply.html)_
 
+_[terraform destroy](https://www.terraform.io/docs/cli/commands/destroy.html)_
 
 
 
