@@ -126,7 +126,7 @@ variable "cdirs_acesso_remoto" {
 }
 ```
 
-**um poucos sobre os comandos que serão executados**
+**Um poucos sobre os comandos que serão executados:**
 
 ![Where is the doctor](images/terraformcycle.png)
 
