@@ -20,7 +20,7 @@ você precisa configura-las na sua máquina.
 
 Recomendo você criar uma pasta para podermos trabalhar, após isso dentro dessa pasta crie os seguintes arquivos.
 
-
+```
 main.tf
 ec2.tf
 output.tf
@@ -28,7 +28,7 @@ script.sh
 security-group.tf
 vars.tf
 terraform.tfvars
-
+```
 
 
 #### No arquivo main.tf, iremos incluir o nosso provider aws.
@@ -127,6 +127,9 @@ variable "cdirs_acesso_remoto" {
 ```
 
 **um poucos sobre os comandos que serão executados**
+
+![Where is the doctor](images/terraformcycle.png)
+
 
 _[terraform init](https://www.terraform.io/docs/cli/commands/init.html)_
 
