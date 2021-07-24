@@ -136,17 +136,90 @@ variable "cdirs_acesso_remoto" {
 
 _[## terraform init](https://www.terraform.io/docs/cli/commands/init.html)_
 Este comando irá realizar diversas tarefas dentro do nosso diretório, umas delas é baixar as informacoes necessárias para nos comunicarmos com a AWS.
+Ex:
+```
+ terraform init
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Finding latest version of hashicorp/aws...
+- Installing hashicorp/aws v3.51.0...
+- Installed hashicorp/aws v3.51.0 (self-signed, key ID 34365D9473R7968F)
+```
+
+
 
 
 _[## terraform plan](https://www.terraform.io/docs/cli/commands/plan.html)_
 Criamos um plano de execucao, podemos ver o que o terraform irá criar.
+No final do plano apresentado será exibido a seguinte informacao.
+```
+Plan: 2 to add, 0 to change, 0 to destroy.
 
+Changes to Outputs:
+  + dns = (known after apply)
+```
 
 _[## terraform apply](https://www.terraform.io/docs/cli/commands/apply.html)_
-Executamos o plano proposto no terraform apply.
+Executamos o plano proposto no terraform apply, digite _yes_ quando for solicitado a confirmacao.
+
+```
+  Enter a value: yes
+
+aws_security_group.webapp: Creating...
+aws_security_group.webapp: Creation complete after 7s [id=sg-0fc316f1d61457e9f]
+aws_instance.web1: Creating...
+aws_instance.web1: Still creating... [10s elapsed]
+aws_instance.web1: Still creating... [20s elapsed]
+aws_instance.web1: Still creating... [30s elapsed]
+aws_instance.web1: Creation complete after 40s [id=i-02874a95a1761f277]
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+```
+
+Após a execucao, receberemos o que foi proposto no arquivo output.tf.
+
+```
+Outputs:
+
+dns = "ec2-3-215-73-133.compute-1.amazonaws.com"
+```
+
+Para testar, basta executar o comando:
+
+```
+curl http://ec2-3-215-73-133.compute-1.amazonaws.com
+<h1>Hello World from the other side, i am at ip-172-31-8-224.ec2.internal</h1>
+```
+Caso queira, podem logar no console da AWS e verificar o que foi provisionado
+
+## Nossa EC2.
+![EC2](/images/ec2.png)
+
+
+## nosso grupo de seguranca.
+![Security](/images/security_group.png)
+
 
 _[## terraform destroy](https://www.terraform.io/docs/cli/commands/destroy.html)_
 Como o nome já diz, destruimos o que foi provisionado.
+O terraform irá lhe informar o que será destriudo e você precisa confirmar:
+
+```
+ Enter a value: yes
+
+aws_instance.web1: Destroying... [id=i-02874a95a1761f277]
+aws_instance.web1: Still destroying... [id=i-02874a95a1761f277, 10s elapsed]
+aws_instance.web1: Still destroying... [id=i-02874a95a1761f277, 20s elapsed]
+aws_instance.web1: Still destroying... [id=i-02874a95a1761f277, 30s elapsed]
+aws_instance.web1: Destruction complete after 33s
+aws_security_group.webapp: Destroying... [id=sg-0fc316f1d61457e9f]
+aws_security_group.webapp: Destruction complete after 2s
+
+Destroy complete! Resources: 2 destroyed.
+```
+
+
 
 
 

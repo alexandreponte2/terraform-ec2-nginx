@@ -9,5 +9,5 @@ variable "amis" {
 
 variable "cdirs_acesso_remoto" {
   type    = list(string)
-  default = ["seu-IP/32"]
+  default = ["Seu-IP-Aqui/32"]
 }
