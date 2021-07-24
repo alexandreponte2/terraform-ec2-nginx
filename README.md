@@ -7,9 +7,9 @@ Terraform é uma ferramenta para construir, alterar e configurar infraestrutura.
 Isso pode ser feito tanto localmente quanto remoto.
 
 
-_Alguns exemplos de nuvens públicas que podemos trabalhar utilizando o terraform, [clique aqui](https://registry.terraform.io/browse/providers)_
+_ Falando em remoto, alguns exemplos de nuvens públicas que podemos trabalhar utilizando o terraform, [clique aqui](https://registry.terraform.io/browse/providers)_
 
-Neste post vamos utilizar aws por causa do [free tier](https://aws.amazon.com/pt/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all)
+Neste post vamos utilizar AWS por causa do [free tier](https://aws.amazon.com/pt/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all)
 
 Para nos comunicarmos com a aws, vamos precisar de duas chaves _aws_access_key_ e _aws_secret_key_, essas chaves podem ser configuradas via [aws-cli](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/install-cliv2.html)
 você precisa configura-las na sua máquina.
@@ -18,7 +18,7 @@ você precisa configura-las na sua máquina.
 
 ### Mãos a obra.
 
-Recomendo você criar uma pasta para podermos trabalhar, após isso dentro dessa pasta crie os seguintes arquivos.
+Recomendo você criar uma pasta, após isso dentro dessa pasta crie os seguintes arquivos:
 
 ```
 main.tf
@@ -27,11 +27,13 @@ output.tf
 script.sh
 security-group.tf
 vars.tf
-terraform.tfvars
+
 ```
 
 
 #### No arquivo main.tf, iremos incluir o nosso provider aws.
+#### Estamos declarando também aonde a nossa infraestrutura será provisionada _us-east-1_.
+#### Para saber mais sobre Regiões e zonas de disponibilidade [clique aqui](https://aws.amazon.com/pt/about-aws/global-infrastructure/regions_az/
 
 ```
 provider "aws" {
@@ -40,8 +42,8 @@ provider "aws" {
 ```
 
 
-#### No arquivo ec2.tf, vamos declarar a nossa instancia, aqui estamos citando o script.sh que irá instalar o nginx.
-#### Aqui também citamos o security group e que vai se comportar como um firewall para a nossa instancia
+#### No arquivo ec2.tf, vamos declarar a nossa instancia (instance_type) a t2.micro esta dentro do [free tier](https://aws.amazon.com/pt/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all), estamos citando o script.sh que irá instalar o nginx.
+#### Aqui também citamos o security group e que vai se comportar como um firewall para a nossa instancia liberando apenas as portas necessárias.
 
 
 ```
@@ -58,7 +60,7 @@ resource "aws_instance" "web1" {
 ```
 
 #### O output.tf utilizamos para que no final da execução do nosso código nos seja apresentado alguma informação desejada.
-#### No caso aqui será a url para acessarmos a instancia via browser.
+#### No caso aqui será uma url para acessarmos a instancia via browser.
 
 ```
 output "dns" {
@@ -109,6 +111,7 @@ resource "aws_security_group" "web1" {
 ```
 
 #### As variáveis citadas acima, serão declaras no arquivo vars.tf.
+#### Não esqueça de incluir o seu ip para poder acessar.
 
 ```
 variable "amis" {
@@ -131,9 +134,13 @@ variable "cdirs_acesso_remoto" {
 ![Where is the doctor](images/terraformcycle.png)
 
 
+## terraform init
+Este comando irá realizar diversas tarefas dentro do nosso diretório, umas delas é baixar as informacoes necessárias para nos comunicarmos com a AWS
 _[terraform init](https://www.terraform.io/docs/cli/commands/init.html)_
 
-_[terraform plan](https://www.terraform.io/docs/cli/commands/plan.html)_
+
+## terraform Plan
+Criamos um plano de execucao, podemos ver o que o terraform irá criar _[terraform plan](https://www.terraform.io/docs/cli/commands/plan.html)_.
 
 _[terraform apply](https://www.terraform.io/docs/cli/commands/apply.html)_
 
