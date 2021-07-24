@@ -134,17 +134,19 @@ variable "cdirs_acesso_remoto" {
 ![Where is the doctor](images/terraformcycle.png)
 
 
-## terraform init
+_[## terraform init](https://www.terraform.io/docs/cli/commands/init.html)_
 Este comando irá realizar diversas tarefas dentro do nosso diretório, umas delas é baixar as informacoes necessárias para nos comunicarmos com a AWS
-_[terraform init](https://www.terraform.io/docs/cli/commands/init.html)_
 
 
-## terraform Plan
-Criamos um plano de execucao, podemos ver o que o terraform irá criar _[terraform plan](https://www.terraform.io/docs/cli/commands/plan.html)_.
+_[## terraform plan](https://www.terraform.io/docs/cli/commands/plan.html)_
+Criamos um plano de execucao, podemos ver o que o terraform irá criar.
 
-_[terraform apply](https://www.terraform.io/docs/cli/commands/apply.html)_
 
-_[terraform destroy](https://www.terraform.io/docs/cli/commands/destroy.html)_
+_[## terraform apply](https://www.terraform.io/docs/cli/commands/apply.html)_
+Executamos o plano propost no terraform apply.
+
+_[## terraform destroy](https://www.terraform.io/docs/cli/commands/destroy.html)_
+Como o nome já diz, destruimos o que foi provisionado.
 
 
 
