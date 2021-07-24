@@ -197,7 +197,7 @@ Caso queira, podem logar no console da AWS e verificar o que foi provisionado
 ![EC2](/images/ec2.png)
 
 
-## nosso grupo de seguranca.
+## Nosso grupo de seguranca.
 ![Security](/images/security_group.png)
 
 
