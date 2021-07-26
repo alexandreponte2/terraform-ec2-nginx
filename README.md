@@ -59,6 +59,19 @@ resource "aws_instance" "web1" {
 }
 ```
 
+```
+#!/bin/bash
+sudo apt-get update
+sudo apt install -y nginx
+sudo echo "<h1>Hello World from the other side, i am at $(hostname -f)</h1>" > /var/www/html/index.nginx-debian.html
+sudo systemctl restart nginx
+sudo systemctl status nginx
+sudo nginx -t
+```
+
+
+
+
 #### O output.tf utilizamos para que no final da execução do nosso código nos seja apresentado alguma informação desejada.
 #### No caso aqui será uma url para acessarmos a instancia via browser.
 
