@@ -1,7 +1,7 @@
 variable "amis" {
   type = map(string)
 #Altere a imagem conforme a região
-# aqui estamos usando a umagem do ubuntu devido ao script.ssh
+# aqui estamos usando a imagem do ubuntu devido ao script.ssh
   default = {
     "us-east-1" = "ami-08c40ec9ead489470"
     "us-east-2" = "ami-08c40ec9ead489470"
