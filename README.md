@@ -3,6 +3,9 @@
 
 
 
+
+
+
 Terraform é uma ferramenta para construir, alterar e configurar infraestrutura.
 Isso pode ser feito tanto localmente quanto remoto.
 
