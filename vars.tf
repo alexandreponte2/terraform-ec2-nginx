@@ -1,3 +1,6 @@
+
+#removi a variavel, pois estamos buscando a versão mais recente da AMI via data.
+
 # variable "amis" {
 #   type = map(string)
 # #Altere a imagem conforme a região
@@ -10,7 +13,7 @@
 
 variable "cdirs_acesso_remoto" {
   type    = list(string)
-  default = ["0.0.0.0/0"]
+  default = ["0.0.0.0/0"] # recomendo colocar o seu ip aqui /32
 }
 
 #Recomendo configurar um profile
